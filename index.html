@@ -5,107 +5,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>于敏人物卡片</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
-        /* 自定义样式 */
-       .bg-gradient-custom {
-            background: linear-gradient(to bottom, #485a7b, #35435e);
+        /* 全局样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
 
-       .text-gold {
+        /* 封面模块样式 */
+       .cover-section {
+            background: linear-gradient(to bottom, #485a7b, #35435e);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 32px;
+        }
+
+       .cover-section img {
+            border-radius: 50%;
+            margin-bottom: 24px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+       .cover-section h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+       .cover-section p {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+       .cover-section p.italic {
+            font-style: italic;
+        }
+
+        /* 生平与成就模块样式 */
+       .life-achievement-section {
+            padding: 64px 32px;
+        }
+
+       .life-achievement-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffd700;
+            border-bottom: 4px solid #ffd700;
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+
+       .life-achievement-section p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 32px;
+        }
+
+       .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+       .grid-item {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+       .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+       .grid-item h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 16px;
+        }
+
+       .grid-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+       .grid-item blockquote {
+            font-size: 18px;
+            font-style: italic;
+            color: #333;
+        }
+
+       .grid-item blockquote span {
+            font-weight: bold;
             color: #ffd700;
         }
 
-       .hover-scale:hover {
+       .grid-item p.note {
+            font-size: 14px;
+            color: #777;
+            text-align: right;
+        }
+
+        /* 精神传承模块样式 */
+       .spirit-section {
+            background: linear-gradient(to bottom, #485a7b, #35435e);
+            padding: 64px 32px;
+            text-align: center;
+            color: white;
+        }
+
+       .spirit-section h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 32px;
+        }
+
+       .spirit-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+       .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+       .tag {
+            background-color: #ffd700;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+       .tag:hover {
             transform: scale(1.05);
-            transition: transform 0.3 ease;
+        }
+
+        /* 页脚模块样式 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            font-size: 14px;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body>
     <!-- 封面模块 -->
-    <section class="bg-gradient-custom h-screen flex flex-col justify-center items-center text-white p-8">
-        <img src="images/yumin-photo.jpg" alt="于敏" class="rounded-full mb-6 shadow-lg">
-        <h1 class="text-4xl font-bold mb-2">于敏</h1>
-        <p class="text-xl mb-4">中国氢弹奠基人·“两弹一星”功勋科学家</p>
-        <p class="text-lg italic">"他是‘国产土专家’，也是‘沉默的核司令’，用一生回答‘科学与祖国’的命题。"</p>
+    <section class="cover-section">
+        <img src="images/yumin-photo.jpg" alt="于敏">
+        <h1>于敏</h1>
+        <p>中国氢弹奠基人·“两弹一星”功勋科学家</p>
+        <p class="italic">"他是‘国产土专家’，也是‘沉默的核司令’，用一生回答‘科学与祖国’的命题。"</p>
     </section>
 
     <!-- 生平与成就模块 -->
-    <section class="py-16 px-8">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-gold border-b-4 border-gold inline-block mb-8">隐姓埋名的氢弹之路</h2>
-            <p class="text-lg text-gray-700 mb-8">1960年，于敏放弃量子场论研究，加入核武器研究，从此"消失"在公众视野，隐姓埋名28年，带领团队从零突破氢弹技术。</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">1926</h3>
-                    <p>生于河北宁河（今属天津），少年时期展现数学天赋，考入天津耀华中学。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">1949</h3>
-                    <p>北京大学物理系毕业，留校任助教，后攻读研究生，专注于理论物理研究。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">1960</h3>
-                    <p>临危受命，加入核武器研究项目，转向氢弹原理探索，从此与家人聚少离多。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">1967</h3>
-                    <p>中国第一颗氢弹爆炸成功（代号"639"），于敏提出的"于敏方案"奠定核心理论基础。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">1999</h3>
-                    <p>被追授"两弹一星"功勋奖章（因保密原因，此前身份未公开）。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">2015</h3>
-                    <p>获2014年度国家最高科学技术奖，成为"共和勋章"首批获得者之一。</p>
-                </div>
+    <section class="life-achievement-section">
+        <h2>隐姓埋名的氢弹之路</h2>
+        <p>1960年，于敏放弃量子场论研究，加入核武器研究，从此"消失"在公众视野，隐姓埋名28年，带领团队从零突破氢弹技术。</p>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3>1926</h3>
+                <p>生于河北宁河（今属天津），少年时期展现数学天赋，考入天津耀华中学。</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">核心科研贡献</h3>
-                    <ul class="list-disc list-inside text-gray-700">
-                        <li>突破氢弹"构型理论"，提出具有中国特色的"于敏方案"，比美国"泰勒 - 乌拉姆方案"更适合国情</li>
-                        <li>主导核武器小型化研究，推动氢弹从试验品到实战化武器的关键跨越</li>
-                        <li>在核爆实验中建立完整数据模型，为后续核武器发展提供理论支撑</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
-                    <h3 class="text-2xl font-bold text-gold mb-4">家国独白与品格</h3>
-                    <blockquote class="text-lg text-gray-700 italic">
-                        "我们国家没有自己的核力量，<br>
-                        就不能有真正的独立……<br>
-                        <span class="text-gold font-bold">我愿一辈子为国家的核武器事业奋斗。</span>"<br>
-                        ——于敏（1984年科研笔记）
-                    </blockquote>
-                    <p class="text-sm text-gray-500 mt-4 text-right">（注：于敏多次拒绝"氢弹之父"称号，称"这是集体的功劳"，奖金全部捐给科研机构。）</p>
-                </div>
+            <div class="grid-item">
+                <h3>1949</h3>
+                <p>北京大学物理系毕业，留校任助教，后攻读研究生，专注于理论物理研究。</p>
+            </div>
+            <div class="grid-item">
+                <h3>1960</h3>
+                <p>临危受命，加入核武器研究项目，转向氢弹原理探索，从此与家人聚少离多。</p>
+            </div>
+            <div class="grid-item">
+                <h3>1967</h3>
+                <p>中国第一颗氢弹爆炸成功（代号"639"），于敏提出的"于敏方案"奠定核心理论基础。</p>
+            </div>
+            <div class="grid-item">
+                <h3>1999</h3>
+                <p>被追授"两弹一星"功勋奖章（因保密原因，此前身份未公开）。</p>
+            </div>
+            <div class="grid-item">
+                <h3>2015</h3>
+                <p>获2014年度国家最高科学技术奖，成为"共和勋章"首批获得者之一。</p>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3>核心科研贡献</h3>
+                <ul>
+                    <li>突破氢弹"构型理论"，提出具有中国特色的"于敏方案"，比美国"泰勒 - 乌拉姆方案"更适合国情</li>
+                    <li>主导核武器小型化研究，推动氢弹从试验品到实战化武器的关键跨越</li>
+                    <li>在核爆实验中建立完整数据模型，为后续核武器发展提供理论支撑</li>
+                </ul>
+            </div>
+            <div class="grid-item">
+                <h3>家国独白与品格</h3>
+                <blockquote>
+                    "我们国家没有自己的核力量，<br>
+                    就不能有真正的独立……<br>
+                    <span>我愿一辈子为国家的核武器事业奋斗。</span>"<br>
+                    ——于敏（1984年科研笔记）
+                </blockquote>
+                <p class="note">（注：于敏多次拒绝"氢弹之父"称号，称"这是集体的功劳"，奖金全部捐给科研机构。）</p>
             </div>
         </div>
     </section>
 
     <!-- 精神传承模块 -->
-    <section class="bg-gradient-custom py-16 px-8 text-white">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">精神传承</h2>
-            <p class="text-lg mb-8">"一个人的名字，早晚是要没有的，能把微薄的力量融进祖国的强盛之中，便足以自慰了。"</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="bg-gold text-white px-6 py-2 rounded-full hover-scale">隐姓埋名</span>
-                <span class="bg-gold text-white px-6 py-2 rounded-full hover-scale">科技报国</span>
-                <span class="bg-gold text-white px-6 py-2 rounded-full hover-scale">淡泊名利</span>
-                <span class="bg-gold text-white px-6 py-2 rounded-full hover-scale">自主创新</span>
-                <span class="bg-gold text-white px-6 py-2 rounded-full hover-scale">甘为人梯</span>
-                <span class="bg-gold text-white px-6 py-2 rounded-full hover-scale">鞠躬尽瘁</span>
-            </div>
+    <section class="spirit-section">
+        <h2>精神传承</h2>
+        <p>"一个人的名字，早晚是要没有的，能把微薄的力量融进祖国的强盛之中，便足以自慰了。"</p>
+        <div class="tag-container">
+            <span class="tag">隐姓埋名</span>
+            <span class="tag">科技报国</span>
+            <span class="tag">淡泊名利</span>
+            <span class="tag">自主创新</span>
+            <span class="tag">甘为人梯</span>
+            <span class="tag">鞠躬尽瘁</span>
         </div>
     </section>
 
     <!-- 页脚模块 -->
-    <footer class="bg-gray-800 text-white py-4 text-center">
-        <p class="text-sm">致敬中国核工业先驱·于敏 | 制作：XXX | 2025年5月 | 资料来源：中国工程学院官网、《两弹一星功勋人物传》</p>
+    <footer>
+        <p>致敬中国核工业先驱·于敏 | 制作：XXX | 2025年5月 | 资料来源：中国工程学院官网、《两弹一星功勋人物传》</p>
     </footer>
 </body>
 
