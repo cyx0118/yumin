@@ -19,21 +19,26 @@
             background: linear-gradient(to bottom, #485a7b, #35435e);
             height: 100vh;
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* 修改为水平布局 */
             justify-content: center;
             align-items: center;
             color: white;
             padding: 32px;
         }
 
-       img {
+       .cover-section img {
             border-radius: 50%;
-            margin-bottom: 24px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            /* 添加以下两行来限制图片大小 */
             max-width: 100%;
             max-height: 300px;
             object-fit: cover;
+            margin-right: 32px; /* 图片右侧添加间距 */
+        }
+
+       .cover-section .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
        .cover-section h1 {
@@ -171,9 +176,11 @@
     <!-- 封面模块 -->
     <section class="cover-section">
         <img src="images/yumin-photo.jpg" alt="于敏">
-        <h1>于敏</h1>
-        <p>中国氢弹奠基人·“两弹一星”功勋科学家</p>
-        <p class="italic">"他是‘国产土专家’，也是‘沉默的核司令’，用一生回答‘科学与祖国’的命题。"</p>
+        <div class="text-container">
+            <h1>于敏</h1>
+            <p>中国氢弹奠基人·“两弹一星”功勋科学家</p>
+            <p class="italic">"他是‘国产土专家’，也是‘沉默的核司令’，用一生回答‘科学与祖国’的命题。"</p>
+        </div>
     </section>
 
     <!-- 生平与成就模块 -->
@@ -244,7 +251,7 @@
 
     <!-- 页脚模块 -->
     <footer>
-        <p>致敬中国核工业先驱·于敏 | 制作：XXX | 2025年5月 | 资料来源：中国工程学院官网、《两弹一星功勋人物传》</p>
+        <p>致敬中国核工业先驱·于敏 | 制作：蔡宇翔 | 2025年5月 | 资料来源：中国工程学院官网、《两弹一星功勋人物传》</p>
     </footer>
 </body>
 
